@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+##--MSVS Items Need to Keep Cean
+/systemc-2.3.4
+/uvm-systemc-1.0-beta5
+.vs/
+Debug/
+Release/
+x64/
+
+##
+##--end of file
