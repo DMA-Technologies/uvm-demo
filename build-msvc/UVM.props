@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <SOURCE_DIR_ROOT>$(SolutionDir)\..\source</SOURCE_DIR_ROOT>
+    <SOURCE_DIR_INCLUDE>$(SOURCE_DIR_ROOT)\include</SOURCE_DIR_INCLUDE>
+    <SYSTEMC_DIR_ROOT>$(SolutionDir)\..\systemc-2.3.4</SYSTEMC_DIR_ROOT>
+    <SYSTEMC_DIR_INCLUDE>$(SYSTEMC_DIR_ROOT)\src</SYSTEMC_DIR_INCLUDE>
+    <UVM_SYSTEMC_DIR_ROOT>$(SolutionDir)\..\uvm-systemc-1.0-beta5</UVM_SYSTEMC_DIR_ROOT>
+    <UVM_SYSTEMC_DIR_INCLUDE>$(UVM_SYSTEMC_DIR_ROOT)\src</UVM_SYSTEMC_DIR_INCLUDE>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SYSTEMC_DIR_INCLUDE);$(UVM_SYSTEMC_DIR_INCLUDE);$(SOURCE_DIR_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <DisableSpecificWarnings>4121;4127</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalOptions>/vmg %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="SOURCE_DIR_ROOT">
+      <Value>$(SOURCE_DIR_ROOT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SOURCE_DIR_INCLUDE">
+      <Value>$(SOURCE_DIR_INCLUDE)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SYSTEMC_DIR_ROOT">
+      <Value>$(SYSTEMC_DIR_ROOT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="SYSTEMC_DIR_INCLUDE">
+      <Value>$(SYSTEMC_DIR_INCLUDE)</Value>
+    </BuildMacro>
+    <BuildMacro Include="UVM_SYSTEMC_DIR_ROOT">
+      <Value>$(UVM_SYSTEMC_DIR_ROOT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="UVM_SYSTEMC_DIR_INCLUDE">
+      <Value>$(UVM_SYSTEMC_DIR_INCLUDE)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

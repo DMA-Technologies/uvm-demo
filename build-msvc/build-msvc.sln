@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uvm-EXAMPLE-single_cycle", "uvm-EXAMPLE-single_cycle.vcxproj", "{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6BEF4C65-739C-4A37-B6BE-A34D2BA0F55F}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\INSTALL.md = ..\INSTALL.md
+		..\INSTALL_LINUX.md = ..\INSTALL_LINUX.md
+		..\INSTALL_WINDOWS.md = ..\INSTALL_WINDOWS.md
+		..\LICENSE = ..\LICENSE
+		..\NOTICE = ..\NOTICE
+		..\README.md = ..\README.md
+		..\RELEASE_NOTES.md = ..\RELEASE_NOTES.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "documents", "documents", "{B4EDC876-9E3D-4C6D-9E36-AA359089EB16}"
+	ProjectSection(SolutionItems) = preProject
+		..\documents\EXAMPLE-single_cycle.docx = ..\documents\EXAMPLE-single_cycle.docx
+		..\documents\INDEX.md = ..\documents\INDEX.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		DebugDLL|x64 = DebugDLL|x64
+		DebugDLL|x86 = DebugDLL|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		ReleaseDLL|x64 = ReleaseDLL|x64
+		ReleaseDLL|x86 = ReleaseDLL|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.Debug|x64.ActiveCfg = Debug|x64
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.Debug|x64.Build.0 = Debug|x64
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.Debug|x86.ActiveCfg = Debug|Win32
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.Debug|x86.Build.0 = Debug|Win32
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.DebugDLL|x64.ActiveCfg = Debug|x64
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.DebugDLL|x64.Build.0 = Debug|x64
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.DebugDLL|x86.ActiveCfg = Debug|Win32
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.DebugDLL|x86.Build.0 = Debug|Win32
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.Release|x64.ActiveCfg = Release|x64
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.Release|x64.Build.0 = Release|x64
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.Release|x86.ActiveCfg = Release|Win32
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.Release|x86.Build.0 = Release|Win32
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.ReleaseDLL|x64.ActiveCfg = Release|x64
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.ReleaseDLL|x64.Build.0 = Release|x64
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.ReleaseDLL|x86.ActiveCfg = Release|Win32
+		{5AC507EB-013C-4DA4-9BC1-8B1E5276E69F}.ReleaseDLL|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4EDC876-9E3D-4C6D-9E36-AA359089EB16} = {6BEF4C65-739C-4A37-B6BE-A34D2BA0F55F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD30DBDD-FA98-4B2D-81D5-4E4383DC8B23}
+	EndGlobalSection
+EndGlobal
