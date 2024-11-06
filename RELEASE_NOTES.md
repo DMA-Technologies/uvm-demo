@@ -54,7 +54,8 @@ Please report bugs and suggestions about this work to:
 Project Status
 --------------
 
-<span style='Background: Brown'>Work in progress here. . .</span>
+Tag Release demo.000
+Further work in progress.
 
 
 ---
