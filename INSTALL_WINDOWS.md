@@ -39,7 +39,7 @@ each step of the outline are detailed in the respective sections, below.
 
 Some MSVC configuration and platform combinations were observed to have
 inconsistent properties, causing build issues.  These issues are resolved
-is steps 6 and 7, which apply updates to the added projects.
+in steps 6 and 7, which apply updates to the added projects.
 
 
 ### Installation Steps
@@ -72,10 +72,10 @@ demonstration project into a well-defined directory structure.
 
 Download and unpack or clone this repository into the `<demo>` directory.
 
-After unpacking or cloning, you should see the the file `<demo>\README.md`,
+After unpacking or cloning, you should see the file `<demo>\README.md`,
 amongst others.
 
-For example, using the command shell, this is what you ought see:
+For example, using the command shell, this is what you ought to see:
 
 ```dos
 C:\tmp\uvm-demo>dir /d /o
@@ -146,7 +146,7 @@ This is done to avoid future confusion and grief.
 
 As this project progresses, it is likely that updated reference
 libraries will be incorporated.  When these updates are emplaced,
-the documentaiton will be updated to reflect the changes.
+the documentation will be updated to reflect the changes.
 
 Should you decide to use alternate versions of the reference
 libraries a priori, the authors would appreciate a note detailing
@@ -160,10 +160,10 @@ source archiver [7-zip](http://7-zip.org/) is known to work.
 
 ### SystemC
 
-Unpack the downloaded reference release of SystemC 2.3.4 into into
-the directory `<demo>\systemc-2.3.4`.
+Unpack the downloaded reference release of SystemC 2.3.4 into the
+directory `<demo>\systemc-2.3.4`.
 
-After unpacking, as a sanity check, you should see the the file
+After unpacking, as a sanity check, you should see the file
 `<demo>\systemc-2.3.4\README.md`, amongst others.
 
 For example, using the Windows command shell, you should see something
@@ -210,7 +210,7 @@ C:\tmp\uvm-demo\systemc-2.3.4>
 Unpack the downloaded beta release of UVM/SystemC 1.0 into the
 directory `<demo>\uvm-systemc-1.0-beta5`.
 
-After unpacking, you should see the the file
+After unpacking, you should see the file
 `<demo>\uvm-systemc-1.0-beta5\README.md`, amongst others.
 
 For example, using the Windows command shell, you should see something
@@ -258,7 +258,7 @@ Open the MSVC Solution
 
 Open the solution file located at `<demo>\build-msvc\build-msvc.sln`.
 
-At this step you ought see only one project within the solution:
+At this step you ought to see only one project within the solution:
 * `uvm-EXAMPLE-single_cycle`
 
 
