@@ -48,7 +48,7 @@ Bugs and Suggestions
 
 Please report bugs and suggestions about this work to:
 
-* <span style='Background: Brown'>Insert GITHUB Address here</span>
+* https://github.com/DMA-Technologies/uvm-demo/issues
 
 
 Project Status

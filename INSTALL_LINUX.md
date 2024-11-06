@@ -65,7 +65,7 @@ incompatibilities were identified between the various software
 reference versions when this UVM/SystemC Demonstration Project
 commenced.  As this project progresses, it is likely that updated
 reference libraries will be incorporated.  When these updates are
-emplaced, the documentaiton will be updated, reflecting the changes.
+emplaced, the documentation will be updated, reflecting the changes.
 
 Should you decide, a priori, to use alternate versions of the
 reference libraries, the authors would appreciate a note detailing
@@ -108,7 +108,7 @@ of the demonstration project into a well-defined directory structure.
 Download and unpack, or clone, this repository into the `$DEMO`
 directory.
 
-After unpacking or cloning, you should see the the file 
+After unpacking or cloning, you should see the file 
 `$DEMO/README.md`, amongst others.  Following is an example listing
 which you might expect to see:
 
@@ -149,7 +149,7 @@ SystemC Reference Version 2.3.4
 
 Download one of the two available distribution files of the SystemC
 reference version 2.3.4. This can be accomplished by the 'wget' command to 
-downloaded to a 'know' directory.
+downloaded to a 'known' directory.
 
 Links to the SystemC-2.3.4 reference:
 
@@ -194,7 +194,7 @@ This is done to avoid future confusion and grief.
 
 As this project progresses, it is likely that updated reference
 libraries will be incorporated.  When these updates are emplaced,
-the documentaiton will be updated to reflect the changes.
+the documentation will be updated to reflect the changes.
 
 Should you decide to use alternate versions of the reference
 libraries a priori, the authors would appreciate a note detailing
@@ -205,8 +205,8 @@ SystemC
 -------------------------------------------------------------------------------
 
 If you did not clone the SystemC repository, you will need to unpack
-the downloaded reference release of SystemC 2.3.4 into into the
-directory `$DEMO/systemc-2.3.4`.
+the downloaded reference release of SystemC 2.3.4 into the directory
+`$DEMO/systemc-2.3.4`.
 
 As a sanity check, you ought verify that the SystemC `README` file
 `$DEMO/systemc-2.3.4/README.md` was correctly emplaced, amongst
@@ -334,7 +334,7 @@ SystemC installation can be reconfigured as desired.
 
 SystemC requires a bootstrap of the configuration process.
 
-Bootstraping is documented in the SystemC `INSTALL.md` file.  Note
+Bootstrapping is documented in the SystemC `INSTALL.md` file.  Note
 that there is some ambiguity in the documentation regarding this
 requirement.  In the authors' experience, the SystemC-2.3.4 bootstrap
 procedure __must__ be performed for installation from an archive or
@@ -443,7 +443,7 @@ Build, Check, and Install SystemC
 -------------------------------------------------------------------------------
 
 From the SystemC build directory, building, checking, and installing
-SystemC requires three commands.  No errors ought arise.
+SystemC requires three commands.  No errors ought to arise.
 
 To build SystemC, use the command:
 
@@ -461,7 +461,7 @@ command:
 
 `make install`
 
-The build/check/install sequence is sumarised as:
+The build/check/install sequence is summarized as:
 
 ```bash
 $ cd $DEMO/systemc-2.3.4/objdir
@@ -618,7 +618,7 @@ warnings can be suppressed by adding `-Wno-use-after-free` to the
 standard used.
 
 The tests have __one__ failure regardless of the language standard
-used.  The failing test is "`sinple/phases/timeout`".  This failure
+used.  The failing test is "`simple/phases/timeout`".  This failure
 has no apparent affect on execution of the demonstration code between
 Linux and Windows.  Ergo, the authors have elected to ignore this
 error, as this project is intended to demonstrate original work, not
@@ -652,7 +652,7 @@ The demonstration code is built and executed from the
 
 After building the reference libraries, build and execute the
 demonstration project `$DEMO/build-linux` directory.  No warnings or
-errors ought arise.
+errors ought to arise.
 
 
 To build and test the 'uvm-EXAMPLE-single_cycle' Project, use the
@@ -768,7 +768,7 @@ Whilst building the SystemC libraries, system configuration issues
 were observed.  Note that the authors used a minimal Debian
 (bookworm) virtual machine as their starting point.
 
-The authors solutions to these issues are
+The authors' solutions to these issues are
 discussed below:
 
 1. [Bootstrap Failure due to Missing `aclocal` Command](#Bootstrap-Failure-due-to-Missing-aclocal-Command)
