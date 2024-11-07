@@ -33,7 +33,10 @@
 
 ##--MSVS Items Need to Keep Cean
 /systemc-2.3.4
+/systemc-3.0.0
+/systemc-3.0.1
 /uvm-systemc-1.0-beta5
+/uvm-systemc-1.0-beta6
 .vs/
 Debug/
 Release/
