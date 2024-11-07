@@ -28,6 +28,8 @@
 ##
 ##  HISTORY:
 ##  2024-09-24, Moore, Peimann - created
+##  2024-11-07, Moore, Peimann - updated to SystemC-3.0.1 and UVM-1.0b6.
+##  2024-11-07, Moore, Peimann - added missing compiler warning.
 ##
 ##..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 
@@ -42,7 +44,7 @@ PROJECT_INCLUDE += -I ${PROJECT_SOURCE}/include
 ##--SystemC setup
 ##--NB: disabled errors for various items as the SystemC reference
 ##--    implementation fails, otherwise.
-SYSTEMC_BASE = ../systemc-2.3.4
+SYSTEMC_BASE = ../systemc-3.0.1
 
 SYSTEMC_INCLUDE += -I ${SYSTEMC_BASE}/include
 
@@ -50,7 +52,7 @@ SYSTEMC_INCLUDE += -I ${SYSTEMC_BASE}/include
 SYSTEMC_LIBS += ${SYSTEMC_BASE}/lib-linux64/libsystemc.a
 
 ##--UVM/SystemC setup
-UVM_SYSTEMC_BASE += ../uvm-systemc-1.0-beta5
+UVM_SYSTEMC_BASE += ../uvm-systemc-1.0-beta6
 
 UVM_SYSTEMC_INCLUDE += -I ${UVM_SYSTEMC_BASE}/include
 
@@ -91,6 +93,7 @@ CXXFLAGS += -Wduplicated-cond
 CXXFLAGS += -Weffc++
 CXXFLAGS += -Wenum-conversion
 ##XFLAGS += -Wflex-array-member-not-at-end  ## g++-13 and later
+CXXFLAGS += -Wfloat-conversion
 CXXFLAGS += -Wfloat-equal
 CXXFLAGS += -Wformat=2
 CXXFLAGS += -Wformat-overflow=2
