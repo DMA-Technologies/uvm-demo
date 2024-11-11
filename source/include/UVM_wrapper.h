@@ -37,6 +37,7 @@
 
   //--required library includes
 # if  defined(__GNUC__)
+
 #   pragma GCC diagnostic push
 
 #   pragma GCC diagnostic ignored "-Warith-conversion"
@@ -52,12 +53,20 @@
 #   pragma GCC diagnostic ignored "-Wswitch-enum"
 #   pragma GCC diagnostic ignored "-Wunused-parameter"
 #   pragma GCC diagnostic ignored "-Wuseless-cast"
+
+# elif  defined(_MSC_VER)
+
+#   pragma warning(push)
+#   pragma warning(disable : 4121)
+
 # endif
 
 # include <uvm>
 
 # if  defined(__GNUC__)
 #   pragma GCC diagnostic pop
+# elif  defined(_MSC_VER)
+#   pragma warning(pop)
 # endif
 
   //--required project includes

@@ -21,11 +21,17 @@
 //
 //  NOTES:
 //  2023-06-20: Moore and Peimann: first cut.
+//  2023-11-07: Moore and Peimann: disabled additional warnings, as
+//                                 required for compatibility with
+//                                 SystemC 3.0.1:
+//                                   -Wconversion
+//                                   -Wstrict-overflow
+//  2023-11-07: Moore and Peimann: allow MSVC compile without error
 //
 //..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 //--invocation guard
-#if not defined(__SC_H__)
-# define __SC_H__
+#if not defined(__SC_WRAPPER_H__)
+# define __SC_WRAPPER_H__
 
   //1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
   //--required system includes
@@ -33,26 +39,36 @@
 
   //--required library includes
 # if  defined(__GNUC__)
-#   pragma GCC diagnostic push
 
+#   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Warith-conversion"
 #   pragma GCC diagnostic ignored "-Wcast-align"
 #   pragma GCC diagnostic ignored "-Wcast-qual"
+#   pragma GCC diagnostic ignored "-Wconversion"
 #   pragma GCC diagnostic ignored "-Weffc++"
 #   pragma GCC diagnostic ignored "-Wfloat-equal"
 #   pragma GCC diagnostic ignored "-Wnon-virtual-dtor"
 #   pragma GCC diagnostic ignored "-Wredundant-decls"
 #   pragma GCC diagnostic ignored "-Wshadow"
 #   pragma GCC diagnostic ignored "-Wsign-conversion"
+#   pragma GCC diagnostic ignored "-Wstrict-overflow"
 #   pragma GCC diagnostic ignored "-Wswitch-enum"
 #   pragma GCC diagnostic ignored "-Wunused-parameter"
 #   pragma GCC diagnostic ignored "-Wuseless-cast"
+
+# elif  defined(_MSC_VER)
+
+#   pragma warning(push)
+#   pragma warning(disable : 4121)
+
 # endif
 
 # include <systemc>
 
 # if  defined(__GNUC__)
 #   pragma GCC diagnostic pop
+# elif  defined(_MSC_VER)
+#   pragma warning(pop)
 # endif
 
   //--required project includes
@@ -157,7 +173,7 @@
 
   //1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
   //--end of invocation guard
-#endif // not defined(__SC_H__)
+#endif // not defined(__SC_WRAPPER_H__)
 
 //..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 //
