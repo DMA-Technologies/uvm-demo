@@ -57,15 +57,48 @@ instructions.
 All known project dependencies and instructions are in the
 file for both Window and Linux.
 
-### Caveats
+Caveats
+-------
+A "caveat" is a warning or a caution.  In this project several
+choices were at the outset due to technology, compilation, and
+tools' compatibility issues.  These include:
+
+### Caveats 'demo.1.0.0
+
+1. The SystemC 2.3.4 reference implementation was selected, as the
+available reference implementation of UVM/SystemC (1.0-beta5) was not
+compatible with the available SystemC 3.0.0 implementation.
+
+2. The C++ 2020 standard was selected, as it is the most recent
+standard compatible with the SystemC and UVM/SystemC reference
+implementations.  The C++ 2023 standard deprecates, or alters,
+several language features used by the reference implementations.
+As the project goals do not include active maintenance of the
+reference implementations, the most-recent, compatible standard
+was used.
+
+3. Several compilation issues were found in the Windows reference
+implementations of SystemC and UVM/SystemC.  For example, some MSVC
+library incompatibilities were found.  The issues identified during
+the development of this project were resolved as part of the install
+process.
+
+4. This project's use of the C++ 2020 standard is incompatible with
+most of the default SystemC library packages installed under the
+contemporary Linux distributions.  Local builds and static linking
+are used to avoid problems which would otherwise occur from
+dynamic linking with nominal SystemC library installations.
+
+
+### Caveats 'demo.2.0.0
 
 A "caveat" is a warning or a caution.  In this project several
 choices were at the outset due to technology, compilation, and
 tools' compatibility issues.  These include:
 
-1. The SystemC 2.3.4 reference implementation was selected, as the
-available reference implementation of UVM/SystemC (1.0-beta5) was not
-compatible with the available SystemC 3.0.0 implementation.
+1. The SystemC 3.0.1 reference implementation was selected, as the
+available reference implementation of UVM/SystemC (1.0-beta6) that 
+was compatible with the available SystemC 3.0.0/3.0.1 implementation.
 
 2. The C++ 2020 standard was selected, as it is the most recent
 standard compatible with the SystemC and UVM/SystemC reference

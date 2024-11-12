@@ -4,9 +4,9 @@
   <PropertyGroup Label="UserMacros">
     <SOURCE_DIR_ROOT>$(SolutionDir)\..\source</SOURCE_DIR_ROOT>
     <SOURCE_DIR_INCLUDE>$(SOURCE_DIR_ROOT)\include</SOURCE_DIR_INCLUDE>
-    <SYSTEMC_DIR_ROOT>$(SolutionDir)\..\systemc-2.3.4</SYSTEMC_DIR_ROOT>
+    <SYSTEMC_DIR_ROOT>$(SolutionDir)\..\systemc-3.0.1</SYSTEMC_DIR_ROOT>
     <SYSTEMC_DIR_INCLUDE>$(SYSTEMC_DIR_ROOT)\src</SYSTEMC_DIR_INCLUDE>
-    <UVM_SYSTEMC_DIR_ROOT>$(SolutionDir)\..\uvm-systemc-1.0-beta5</UVM_SYSTEMC_DIR_ROOT>
+    <UVM_SYSTEMC_DIR_ROOT>$(SolutionDir)\..\uvm-systemc-1.0-beta6</UVM_SYSTEMC_DIR_ROOT>
     <UVM_SYSTEMC_DIR_INCLUDE>$(UVM_SYSTEMC_DIR_ROOT)\src</UVM_SYSTEMC_DIR_INCLUDE>
   </PropertyGroup>
   <PropertyGroup />

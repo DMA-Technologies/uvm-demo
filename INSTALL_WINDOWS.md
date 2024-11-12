@@ -34,10 +34,10 @@ General Outline
 -------------------------------------------------------------------------------
 
 This is a general outline of process required to download and build the
-UVM/SystemC Demonstration Project using MSVC 2022.  Specific details for
+UVM/SystemC Demonstration Project using MSVS 2022.  Specific details for
 each step of the outline are detailed in the respective sections, below.
 
-Some MSVC configuration and platform combinations were observed to have
+Some MSVS configuration and platform combinations were observed to have
 inconsistent properties, causing build issues.  These issues are resolved
 in steps 6 and 7, which apply updates to the added projects.
 
@@ -50,9 +50,9 @@ in steps 6 and 7, which apply updates to the added projects.
 
 3. [Unpack the SystemC and UVM/SystemC Archives](#Unpack-the-SystemC-and-UVMSystemC-Archives)
 
-4. [Open the MSVC Solution](#Open-the-MSVC-Solution)
+4. [Open the MSVS Solution](#Open-the-MSVS-Solution)
 
-5. [Add SystemC and UVM/SystemC into the MSVC Solution](#Add-SystemC-and-UVMSystemC-into-the-MSVC-Solution)
+5. [Add SystemC and UVM/SystemC into the MSVS Solution](#Add-SystemC-and-UVMSystemC-into-the-MSVS-Solution)
 
 6. [Patch the Added SystemC and SystemC-core Projects](#Patch-the-Added-SystemC-and-SystemC-core-Projects)
 
@@ -86,9 +86,11 @@ C:\tmp\uvm-demo>dir /d /o
 
 [.]
 [..]
+[build-linux]
 [build-msvc]
 [documents]
 [source]
+.gitignore
 INSTALL.md
 INSTALL_LINUX.md
 INSTALL_WINDOWS.md
@@ -97,8 +99,9 @@ NOTICE
 README.md
 RELEASE_NOTES.md
 
-               7 File(s)         39,657 bytes
-               5 Dir(s)  259,910,402,048 bytes free
+               8 File(s)         65,653 bytes
+               8 Dir(s)  246,362,144,768 bytes free
+
 
 C:\tmp\uvm-demo>
 ```
@@ -115,25 +118,25 @@ The authors note that a newer UVM/SystemC beta version were released
 prior to UVM/SystemC Demonstration Project being released.  
 
 
-### SystemC Reference Version 2.3.4
+### SystemC Reference Version 3.0.1
 
 Download one of the two available distribution files of the SystemC
-reference version 2.3.4.
+reference version 3.0.1.
 
-Links to the SystemC-2.3.4 reference archives:
+Links to the SystemC-3.0.1 reference archives:
 
-1. [SystemC Tarball](https://github.com/accellera-official/systemc/archive/refs/tags/2.3.4.tar.gz)
+1. [SystemC Tarball](https://github.com/accellera-official/systemc/archive/refs/tags/3.0.1.tar.gz)
 
-2. [SystemC Zip File](https://github.com/accellera-official/systemc/archive/refs/tags/2.3.4.zip)
+2. [SystemC Zip File](https://github.com/accellera-official/systemc/archive/refs/tags/3.0.1.zip)
 
 
-### UVM/SystemC Reference Version 1.0 beta5
+### UVM/SystemC Reference Version 1.0 beta6
 
-Download the archived beta5 version of the reference UVM/SystemC 1.0
+Download the archived beta6 version of the reference UVM/SystemC 1.0
 library.
 
 Link to the
-[UVM/SystemC-1.0-beta5](https://www.accellera.org/images/downloads/drafts-review/uvm-systemc-1.0-beta5.tar.gz)
+[uvm-systemc-1.0-beta6](https://www.accellera.org/images/downloads/drafts-review/uvm-systemc-1.0-beta6.tar.gz)
 reference archive.
 
 
@@ -160,31 +163,34 @@ source archiver [7-zip](http://7-zip.org/) is known to work.
 
 ### SystemC
 
-Unpack the downloaded reference release of SystemC 2.3.4 into the
-directory `<demo>\systemc-2.3.4`.
+Unpack the downloaded reference release of SystemC 3.0.1 into the
+directory `<demo>\systemc-3.0.1`.
 
 After unpacking, as a sanity check, you should see the file
-`<demo>\systemc-2.3.4\README.md`, amongst others.
+`<demo>\systemc-3.0.1\README.md`, amongst others.
 
 For example, using the Windows command shell, you should see something
 similar to the following when you do a directory listing of the files
-in `<demo>\systemc-2.3.4`:
+in `<demo>\systemc-3.0.1`:
 
 ```dos
-C:\tmp\uvm-demo\systemc-2.3.4>dir /d /o
+C:\tmp\uvm-demo\systemc-3.0.1>dir /d /o
  Volume in drive C has no label.
  Volume Serial Number is DAED-0135
 
- Directory of C:\tmp\uvm-demo\systemc-2.3.4
+ Directory of C:\tmp\uvm-demo\systemc-3.0.1
 
 [.]
 [..]
 [cmake]
 [config]
+[docker]
 [docs]
 [examples]
-[msvc10]
+[msvc16]
 [src]
+[tests]
+aclocal.m4
 AUTHORS.md
 CMakeLists.txt
 configure
@@ -196,33 +202,33 @@ Makefile.am
 Makefile.in
 NOTICE
 README.md
-RELEASENOTES
+RELEASENOTES.md
 
-              12 File(s)        786,875 bytes
-               8 Dir(s)  259,851,776,000 bytes free
+              13 File(s)        808,761 bytes
+              10 Dir(s)  246,368,907,264 bytes free
 
-C:\tmp\uvm-demo\systemc-2.3.4>
+C:\tmp\uvm-demo\systemc-3.0.1>
 ```
 
 
 ### UVM/SystemC
 
 Unpack the downloaded beta release of UVM/SystemC 1.0 into the
-directory `<demo>\uvm-systemc-1.0-beta5`.
+directory `<demo>\uvm-systemc-1.0-beta6`.
 
 After unpacking, you should see the file
-`<demo>\uvm-systemc-1.0-beta5\README.md`, amongst others.
+`<demo>\uvm-systemc-1.0-beta6\README.md`, amongst others.
 
 For example, using the Windows command shell, you should see something
 similar to the following when you do a directory listing of the files
-in `<demo>\uvm-systemc-1.0-beta5`:
+in `<demo>\uvm-systemc-1.0-beta6`:
 
 ```dos
-C:\tmp\uvm-demo\uvm-systemc-1.0-beta5>dir /d /o
+C:\tmp\uvm-demo\uvm-systemc-1.0-beta6>dir /d /o
  Volume in drive C has no label.
  Volume Serial Number is DAED-0135
 
- Directory of C:\tmp\uvm-demo\uvm-systemc-1.0-beta5
+ Directory of C:\tmp\uvm-demo\uvm-systemc-1.0-beta6
 
 [.]
 [..]
@@ -246,14 +252,14 @@ NOTICE
 README.md
 RELEASENOTES
 
-              14 File(s)        797,862 bytes
-               7 Dir(s)  259,850,612,736 bytes free
+              14 File(s)        798,819 bytes
+               7 Dir(s)  246,364,721,152 bytes free
 
-C:\tmp\uvm-demo\uvm-systemc-1.0-beta5>
+C:\tmp\uvm-demo\uvm-systemc-1.0-beta6>
 ```
 
 
-Open the MSVC Solution
+Open the MSVS Solution
 -------------------------------------------------------------------------------
 
 Open the solution file located at `<demo>\build-msvc\build-msvc.sln`.
@@ -262,7 +268,7 @@ At this step you ought to see only one project within the solution:
 * `uvm-EXAMPLE-single_cycle`
 
 
-Add SystemC and UVM/SystemC into the MSVC Solution
+Add SystemC and UVM/SystemC into the MSVS Solution
 -------------------------------------------------------------------------------
 
 1. From Visual Studio add the reference SystemC and UVM/SystemC projects
@@ -271,11 +277,11 @@ into the solution:
 	
 	| PROJECT       | LOCATION                                                        |
 	|---------------|-----------------------------------------------------------------|
-	| SystemC-core  | `<demo>\SystemC-2.3.4\msvc10\SystemC\SystemC-core.vcxproj`      |
-	| SystemC       | `<demo>\SystemC-2.3.4\msvc10\SystemC\SystemC.vcxproj`           |
-	| uvm-systemc   | `<demo>\uvm-systemc-1.0-beta5\msvc14\uvmsc\uvm-systemc.vcxproj` |
+	| SystemC-core  | `<demo>\systemc-3.0.1\msvc16\SystemC\SystemC-core.vcxproj`      |
+	| SystemC       | `<demo>\systemc-3.0.1\msvc16\SystemC\SystemC.vcxproj`           |
+	| uvm-systemc   | `<demo>\uvm-systemc-1.0-beta6\msvc14\uvmsc\uvm-systemc.vcxproj` |
 
-2. Retarget all projects to your MSVC installation.  
+2. Retarget all projects to your MSVS installation.  
 
 	1. Select the solution 'build-msvc' in the solution explorer.
 
@@ -333,7 +339,7 @@ specific properties.
 
 Three properties are set:
 
-1. Sets user macro SYSTEMC_HOME.
+1. Sets user macro SYSTEMC_HOME to where systemc-3.0.1 is located.
 2. Selects language standard ISO C++20.
 3. Selects warning Level 3 (/W3).
 
