@@ -44,7 +44,7 @@
   // <none>
 
   //--required project includes
-# include "SC.h"
+# include "SC_wrapper.h"
 # include "logger.h"
 # include "model.h"
 # include "../base_test.h"
