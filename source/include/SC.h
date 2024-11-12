@@ -59,7 +59,14 @@
 # elif  defined(_MSC_VER)
 
 #   pragma warning(push)
+#   pragma warning(disable : 4100)
 #   pragma warning(disable : 4121)
+#   pragma warning(disable : 4127)
+#   pragma warning(disable : 4244)
+#   pragma warning(disable : 4267)
+#   pragma warning(disable : 4456)
+#   pragma warning(disable : 4458)
+#   pragma warning(disable : 4996)
 
 # endif
 
@@ -173,6 +180,7 @@
 
   //1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
   //--end of invocation guard
+
 #endif // not defined(__SC_WRAPPER_H__)
 
 //..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../

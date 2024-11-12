@@ -28,8 +28,8 @@
 //
 //..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 //--invocation guard
-#if not defined(__UVM_H__)
-# define __UVM_H__
+#if not defined(__UVM_WRAPPER_H__)
+# define __UVM_WRAPPER_H__
 
   //1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
   //--required system includes
@@ -57,7 +57,10 @@
 # elif  defined(_MSC_VER)
 
 #   pragma warning(push)
+#   pragma warning(disable : 4100)
 #   pragma warning(disable : 4121)
+#   pragma warning(disable : 4127)
+#   pragma warning(disable : 4458)
 
 # endif
 
@@ -86,7 +89,7 @@
   //1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
   //--end of invocation guard
 
-#endif // not defined(__UVM_H__)
+#endif // not defined(__UVM_WRAPPER_H__)
 
 //..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 //
