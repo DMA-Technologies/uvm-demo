@@ -59,14 +59,24 @@
 # elif  defined(_MSC_VER)
 
 #   pragma warning(push)
-#   pragma warning(disable : 4100)
-#   pragma warning(disable : 4121)
-#   pragma warning(disable : 4127)
+#   pragma warning(disable : 4061)
+//#   pragma warning(disable : 4100)
+//#   pragma warning(disable : 4121)
+//#   pragma warning(disable : 4127)
 #   pragma warning(disable : 4244)
 #   pragma warning(disable : 4267)
+#   pragma warning(disable : 4365)
+#   pragma warning(disable : 4371)
+#   pragma warning(disable : 4435)
 #   pragma warning(disable : 4456)
-#   pragma warning(disable : 4458)
+//#   pragma warning(disable : 4458)
+#   pragma warning(disable : 4619)
+#   pragma warning(disable : 4625)
+#   pragma warning(disable : 4626)
+#   pragma warning(disable : 4820)
 #   pragma warning(disable : 4996)
+#   pragma warning(disable : 5027)
+#   pragma warning(disable : 5267)
 
 # endif
 
