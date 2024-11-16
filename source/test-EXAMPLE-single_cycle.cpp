@@ -53,6 +53,9 @@ namespace sc_core
 int sc_main(int const    argc [[maybe_unused]],
             char** const argv [[maybe_unused]])
 {
+  //--parse the command line
+  const bool is_verbose = ((argc >= 2) && (strcmp(argv[1], "-v") == 0));
+
   //--logging
   logger::logger logger{};
 
@@ -71,6 +74,9 @@ int sc_main(int const    argc [[maybe_unused]],
   std::cout << "Create module instances." << std::endl;
   EXAMPLE::single_cycle_t       MUT0 {"EXAMPLE_single_cycle_0"};
   TEST::EXAMPLE::single_cycle_t test0{"test0", logger};
+
+  //--select options
+  test0.verbose(is_verbose);
 
   //--collect exports (bound signals)
   auto &t0_ctl{test0.control_out()};

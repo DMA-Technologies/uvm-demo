@@ -26,6 +26,7 @@
 //  2023-08-11: Moore, Peimann: updated to data-driven test mechanism.
 //  2023-08-14: Moore, Peimann: implemented random signal injection test.
 //  2023-08-14: Moore, Peimann: fixed stimulus-response timing bug.
+//  2024-11-16: Moore, Peimann: added diagnostic verbosity flag.
 //
 //..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 //--invocation guard
@@ -74,6 +75,7 @@
         , m_mut_control{}
         , m_mut_data{}
         , m_mut_debug{}
+        , m_option{}
       {
         SC_THREAD(spin);
         sensitive << m_clock.in.clock.pos();
@@ -127,6 +129,12 @@
       auto &debug_out()
       {
         return  m_mut_debug.out;
+      }
+
+      single_cycle_t const& verbose(bool const is_verbose)
+      {
+        m_option.m_verbose = is_verbose;
+        return  *this;
       }
 
     protected:  // methods
@@ -241,10 +249,11 @@
 // initialise info array for two resets
 
         //--send first reset and wait
-        std::cout
-          << ts() << "   - first reset cycle of test. \n"
-          << ts() << "   - EVIL RESET: #1. \n"
-          << std::endl;
+        if  (m_option.m_verbose)
+          std::cout
+            << ts() << "   - first reset cycle of test. \n"
+            << ts() << "   - EVIL RESET: #1. \n"
+            << std::endl;
 
         info[0].state = {false, false, false, false}; // adv, err, stall, valid
         info[0].stim  = {0,false,false,false,false};  // rst, adv, err, fls, val
@@ -259,7 +268,8 @@
         wait();
 
         //--send second reset; wait is at top of process loop
-        std::cout
+        if (m_option.m_verbose)
+          std::cout
           << ts() << "   - second reset cycle of test. \n"
           << ts() << "   - EVIL RESET: #2. \n"
           << std::endl;
@@ -282,7 +292,8 @@
         for  (unsigned cycle{0};  (cycle < 100000);  cycle++)
         {
           // debug
-          std::cout
+          if (m_option.m_verbose)
+            std::cout
             << ts() << "  - top o'cycle: \n"
             << ts() << "  - cycle: " << cycle << '\n'
             << ts() << "  - debug.in.string: " << '\n'
@@ -310,7 +321,8 @@
 
           if  (state == info[1].pred) //FIXME: can remove after debug is complete.
           { // success confirmation
-            std::cout
+            if (m_option.m_verbose)
+              std::cout
               << ts() << "  - state.is_advance: " << tf(state.is_advance) << '\n'
               << ts() << "  - state.is_error:   " << tf(state.is_error)   << '\n'
               << ts() << "  - state.is_stall:   " << tf(state.is_stall)   << '\n'
@@ -372,30 +384,34 @@
           debug
             << "Debug for cycle " << cycle << ".\n"
             << "  expected start state A/E/S/V: "
-               << tf(info[0].state.is_advance) << '/'
-               << tf(info[0].state.is_error) << '/'
-               << tf(info[0].state.is_stall) << '/'
-               << tf(info[0].state.is_valid) << '\n'
+            << tf(info[0].state.is_advance) << '/'
+            << tf(info[0].state.is_error) << '/'
+            << tf(info[0].state.is_stall) << '/'
+            << tf(info[0].state.is_valid) << '\n'
             << "  stimulus RST/nA/ERR/FLSH/pV:  "
-               << stim.reset << '/'
-               << tf(stim.is_advance) << '/'
-               << tf(stim.is_error) << '/'
-               << tf(stim.is_flush) << '/'
-               << tf(stim.is_valid) << '\n'
+            << stim.reset << '/'
+            << tf(stim.is_advance) << '/'
+            << tf(stim.is_error) << '/'
+            << tf(stim.is_flush) << '/'
+            << tf(stim.is_valid) << '\n'
             << "  expected final state A/E/S/V: "
-               << tf(pred.is_advance) << '/'
-               << tf(pred.is_error) << '/'
-               << tf(pred.is_stall) << '/'
-               << tf(pred.is_valid);
-          std::cout
-            << ts() << "  - computed debug string for cycle " << cycle << ".\n"
-            << debug.str() << "\n"
-            << std::endl;
+            << tf(pred.is_advance) << '/'
+            << tf(pred.is_error) << '/'
+            << tf(pred.is_stall) << '/'
+            << tf(pred.is_valid);
+
+          if  (m_option.m_verbose)
+            std::cout
+              << ts() << "  - computed debug string for cycle " << cycle << ".\n"
+              << debug.str() << "\n"
+              << std::endl;
 
           // write stimulus
-          std::cout
+          if (m_option.m_verbose)
+            std::cout
             << "evil: writing stimulus to MUT: " << SC::time_stamp() << '\n'
             << std::endl;
+
           out.reset->write     (stim.reset);
           out.is_advance->write(stim.is_advance);
           out.is_flush->write  (stim.is_flush);
@@ -404,11 +420,15 @@
           m_mut_debug.out.is_error->write(stim.is_error);
 
           // wait for output from module under test
-          std::cout
+          if (m_option.m_verbose)
+            std::cout
             << ts() << "  - BEFORE WAIT. \n"
             << std::endl;
+
           wait();
-          std::cout
+
+          if (m_option.m_verbose)
+            std::cout
             << ts() << "  - FOLLOWING WAIT. \n"
             << std::endl;
         }
@@ -597,6 +617,13 @@
 #endif
       };
 
+      struct option_t
+      { // options to the tests
+        option_t() : m_verbose{false} {/*noOp*/}
+
+        bool m_verbose;   // print verbose diagnostics
+      };
+
       struct test_t final
       {
         std::string const              group_name;
@@ -636,6 +663,7 @@
       mut_control_t  m_mut_control;
       mut_data_t     m_mut_data;
       mut_debug_t    m_mut_debug;
+      option_t       m_option;
 
       // test sequences
       test_t reset_a_i
