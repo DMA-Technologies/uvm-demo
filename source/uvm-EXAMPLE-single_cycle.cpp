@@ -41,7 +41,7 @@
 // <none>
 
 //--required project includes
-#include "SC.h"
+#include "SC_wrapper.h"
 #include "UVM_wrapper.h"
 
 #include "EXAMPLE/single_cycle.h"

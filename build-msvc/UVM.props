@@ -13,10 +13,11 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(SYSTEMC_DIR_INCLUDE);$(UVM_SYSTEMC_DIR_INCLUDE);$(SOURCE_DIR_INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <DisableSpecificWarnings>4121;4127</DisableSpecificWarnings>
+      <WarningLevel>Level4</WarningLevel>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/vmg %(AdditionalOptions)</AdditionalOptions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <DisableSpecificWarnings>4127</DisableSpecificWarnings>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

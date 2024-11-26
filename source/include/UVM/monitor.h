@@ -172,7 +172,7 @@
           transmit,     // transmit the transaction to all listeners
         };
 
-        transaction_t::value_t signals;
+        transaction_t::value_t signals{};
         state_t                state{state_t::start};
         transaction_t          transaction;
 

@@ -29,7 +29,7 @@
 // <none>
 
 //--project includes
-#include "SC.h"
+#include "SC_wrapper.h"
 #include "model.h"
 #include "EXAMPLE/single_cycle.h"
 #include "TEST/EXAMPLE/single_cycle.h"

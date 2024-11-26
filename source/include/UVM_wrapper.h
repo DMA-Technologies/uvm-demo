@@ -28,8 +28,8 @@
 //
 //..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 //--invocation guard
-#if not defined(__UVM_H__)
-# define __UVM_H__
+#if not defined(__UVM_WRAPPER_H__)
+# define __UVM_WRAPPER_H__
 
   //1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
   //--required system includes
@@ -37,6 +37,7 @@
 
   //--required library includes
 # if  defined(__GNUC__)
+
 #   pragma GCC diagnostic push
 
 #   pragma GCC diagnostic ignored "-Warith-conversion"
@@ -52,12 +53,37 @@
 #   pragma GCC diagnostic ignored "-Wswitch-enum"
 #   pragma GCC diagnostic ignored "-Wunused-parameter"
 #   pragma GCC diagnostic ignored "-Wuseless-cast"
+
+# elif  defined(_MSC_VER)
+
+#   pragma warning(push)
+#   pragma warning(disable : 4061)
+#   pragma warning(disable : 4100)
+#   pragma warning(disable : 4263)
+#   pragma warning(disable : 4264)
+#   pragma warning(disable : 4266)
+#   pragma warning(disable : 4365)
+#   pragma warning(disable : 4371)
+#   pragma warning(disable : 4435)
+#   pragma warning(disable : 4456)
+#   pragma warning(disable : 4458)
+#   pragma warning(disable : 4619)
+#   pragma warning(disable : 4625)
+#   pragma warning(disable : 4626)
+#   pragma warning(disable : 4800)
+#   pragma warning(disable : 4820)
+#   pragma warning(disable : 5026)
+#   pragma warning(disable : 5027)
+#   pragma warning(disable : 5267)
+
 # endif
 
 # include <uvm>
 
 # if  defined(__GNUC__)
 #   pragma GCC diagnostic pop
+# elif  defined(_MSC_VER)
+#   pragma warning(pop)
 # endif
 
   //--required project includes
@@ -77,7 +103,7 @@
   //1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
   //--end of invocation guard
 
-#endif // not defined(__UVM_H__)
+#endif // not defined(__UVM_WRAPPER_H__)
 
 //..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 //

@@ -58,7 +58,7 @@
   // <none>
 
   //--required project includes
-# include "SC.h"
+# include "SC_wrapper.h"
 # include "model.h"
 
   //1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
