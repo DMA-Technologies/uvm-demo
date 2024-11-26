@@ -30,6 +30,7 @@
 ##  2024-09-24, Moore, Peimann - created
 ##  2024-11-07, Moore, Peimann - updated to SystemC-3.0.1 and UVM-1.0b6.
 ##  2024-11-07, Moore, Peimann - added missing compiler warning.
+##  2024-11-13, Peimann - allow base directory override.
 ##
 ##..1..../....2..../....3..../....4..../....5..../....6..../....7..../....8..../
 
@@ -44,20 +45,16 @@ PROJECT_INCLUDE += -I ${PROJECT_SOURCE}/include
 ##--SystemC setup
 ##--NB: disabled errors for various items as the SystemC reference
 ##--    implementation fails, otherwise.
-SYSTEMC_BASE = ../systemc-3.0.1
-
+SYSTEMC_BASE    ?= ../systemc-3.0.1
 SYSTEMC_INCLUDE += -I ${SYSTEMC_BASE}/include
-
-##STEMC_LIB_DIR += -L ${SYSTEMC_BASE}/lib-linux64
-SYSTEMC_LIBS += ${SYSTEMC_BASE}/lib-linux64/libsystemc.a
+SYSTEMC_LIB_DIR += ${SYSTEMC_BASE}/lib-linux64
+SYSTEMC_LIBS    += ${SYSTEMC_LIB_DIR}/libsystemc.a
 
 ##--UVM/SystemC setup
-UVM_SYSTEMC_BASE += ../uvm-systemc-1.0-beta6
-
+UVM_SYSTEMC_BASE    ?= ../uvm-systemc-1.0-beta6
 UVM_SYSTEMC_INCLUDE += -I ${UVM_SYSTEMC_BASE}/include
-
-##M_SYSTEMC_LIB_DIR += -L ${UVM_SYSTEMC_BASE}/lib-linux64
-UVM_SYSTEMC_LIBS += ${UVM_SYSTEMC_BASE}/lib-linux64/libuvm-systemc.a
+UVM_SYSTEMC_LIB_DIR += ${UVM_SYSTEMC_BASE}/lib-linux64
+UVM_SYSTEMC_LIBS    += ${UVM_SYSTEMC_LIB_DIR}/libuvm-systemc.a
 
 ##--C++ general setup
 CXXFLAGS += -std=c++20
@@ -141,7 +138,7 @@ CXXFLAGS += -Wundef
 CXXFLAGS += -Wunknown-pragmas
 CXXFLAGS += -Wunsafe-loop-optimizations
 CXXFLAGS += -Wunused-but-set-parameter
-CXXFLAGS += -Wunused-const-variable=1   ## NB: =2 gives superfluous warnings
+CXXFLAGS += -Wunused-const-variable=1   ## NB: =2 causes build failure
 CXXFLAGS += -Wunused-macros
 CXXFLAGS += -Wunused-parameter
 CXXFLAGS += -Wuse-after-free=3
@@ -152,8 +149,8 @@ CXXFLAGS += -Wvla
 
 ##--linker general setup
 ##--NB: UVM must appear before SystemC
-LDFLAGS += ${UVM_SYSTEMC_LIB_DIR}
-LDFLAGS += ${SYSTEMC_LIB_DIR}
+LDFLAGS += -L ${UVM_SYSTEMC_LIB_DIR}
+LDFLAGS += -L ${SYSTEMC_LIB_DIR}
 
 LDLIBS += ${UVM_SYSTEMC_LIBS}
 LDLIBS += ${SYSTEMC_LIBS}
