@@ -368,7 +368,35 @@ and all other modified files (File|Save All).  This will help avoid
 troubles and madness.
 
 
-Set the Startup Project and References
+Build the 'test-EXAMPLE-single_cycle' Project
+-------------------------------------------------------------------------------
+
+This is a older project before UVM was added. This was basic testing of a 
+single cycle module. Use it as you will.
+
+
+Set the References for the project 'test-EXAMPLE-single_cycle'
+-------------------------------------------------------------------------------
+
+This step establishes proper build-order and library linkage.
+
+1. Add references to the 'test-EXAMPLE-single_cycle' project.
+
+	* SystemC
+	* SystemC-core
+
+Following the changes to the references, save the solution
+and all other modified files (File|Save All).  This will help avoid
+troubles and madness.
+
+
+Build the 'test-EXAMPLE-single_cycle' Project
+-------------------------------------------------------------------------------
+
+1. Right-Click the project 'test-EXAMPLE-single_cycle' and click on [Build].
+
+
+Set the Startup Project and References for the project 'uvm-EXAMPLE-single_cycle'
 -------------------------------------------------------------------------------
 
 This step establishes proper build-order and library linkage.
